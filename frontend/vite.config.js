@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
-// ✅ Completely disables lightningcss and forces Vite to use regular CSS processing
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    transformer: 'none',
-  },
+  plugins: [tailwindcss(),
+    react()],
 })
