@@ -2,13 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-    react()
-  ],
+  plugins: [react(), tailwindcss()],
   css: {
-    transformer: 'postcss' // ✅ Disable lightningcss for cross-platform builds
-  }
+    // 🔧 Disable LightningCSS (causes build error on Vercel)
+    lightningcss: false,
+  },
+  build: {
+    cssMinify: false, // optional but helps avoid LightningCSS entirely
+  },
 })
