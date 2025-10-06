@@ -1,14 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
+// ✅ Completely disables lightningcss and forces Vite to use regular CSS processing
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   css: {
-    // 🔧 Disable LightningCSS (causes build error on Vercel)
-    lightningcss: false,
-  },
-  build: {
-    cssMinify: false, // optional but helps avoid LightningCSS entirely
+    transformer: 'none',
   },
 })
